@@ -60,16 +60,7 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-4 py-16">
         <h2 className="text-2xl font-bold mb-12">How Eco Sync works</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {features.slice(0, 5).map((feature, index) => (
-            <div key={index} className="p-6 rounded-lg border hover:shadow-lg transition-shadow">
-              <div className="text-3xl mb-4">{feature.icon}</div>
-              <h3 className="font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-600 text-sm">{feature.description}</p>
-            </div>
-          ))}
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
-          {features.slice(5).map((feature, index) => (
+          {features.map((feature, index) => (
             <div key={index} className="p-6 rounded-lg border hover:shadow-lg transition-shadow">
               <div className="text-3xl mb-4">{feature.icon}</div>
               <h3 className="font-semibold mb-2">{feature.title}</h3>
