@@ -1,7 +1,14 @@
+'use client'
 import Image from "next/image";
 import { ecoCreators, features } from "./utils/data";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter()
+
+  const handleClick = (route: string) => {
+    router.push(route)
+  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -73,7 +80,10 @@ export default function Home() {
       {/* Call to Action */}
       <div className="text-center py-16">
         <h2 className="text-3xl font-bold mb-8">Ready to join the eco-movement?</h2>
-        <button className="bg-[#04c052] text-black px-6 py-1 rounded-full text-lg font-medium hover:bg-opacity-90">
+        <button 
+        className="bg-[#04c052] text-black px-6 py-1 rounded-full text-lg font-medium hover:bg-opacity-90"
+        onClick={() => handleClick('/Login')}
+        >
           Sign up
         </button>
       </div>
