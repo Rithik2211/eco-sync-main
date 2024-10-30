@@ -30,7 +30,7 @@ export default function Home() {
             <input
               type="text"
               placeholder="Search for eco-friendly tips and products"
-              className="w-full px-6 py-3 rounded-full text-black"
+              className="w-full px-6 py-3 rounded-full text-black outline-none"
             />
             <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#04c052] text-black px-6 py-2 rounded-full">
               Search
