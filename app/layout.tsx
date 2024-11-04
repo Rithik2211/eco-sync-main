@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import NavBar from "./UI/NavBar";
+import { ThirdwebProvider } from "thirdweb/react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,8 +30,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NavBar/>
-          {children}
+         <ThirdwebProvider>
+           <NavBar />
+           {children}
+         </ThirdwebProvider>
       </body>
     </html>
   );
