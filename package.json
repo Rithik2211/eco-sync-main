@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@thirdweb-dev/react": "^4.9.4",
+    "@thirdweb-dev/sdk": "^4.0.99",
+    "ethers": "^5.7.2",
     "lucide-react": "^0.453.0",
     "next": "15.0.1",
     "react": "^18.3",
-		"react-dom": "^18.3",
-		"thirdweb": "^5"
+    "react-dom": "^18.3",
+    "thirdweb": "^5"
   },
   "devDependencies": {
     "@types/node": "^20",
