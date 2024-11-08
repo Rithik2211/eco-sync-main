@@ -1,21 +1,15 @@
-'use client'
 import Image from "next/image";
 import { ecoCreators, features } from "./utils/data";
-import { useRouter } from "next/navigation";
+import NavButton from "./utils/NavButton";
 
 export default function Home() {
-  const router = useRouter()
-
-  const handleClick = (route: string) => {
-    router.push(route)
-  }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-zinc-950">
       {/* Hero Section */}
       <div className="relative h-[500px] rounded-lg mx-4 my-6 overflow-hidden">
         <Image
-          src="/defaultPage/dash.png"
+          src="/defaultPage/dashboard.png"
           alt="Dash background"
           layout="fill"
           objectFit="cover"
@@ -30,7 +24,7 @@ export default function Home() {
             <input
               type="text"
               placeholder="Search for eco-friendly tips and products"
-              className="w-full px-6 py-3 rounded-full text-black outline-none"
+              className="w-full px-6 py-3 rounded-full text-black dark:text-white outline-none"
             />
             <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#04c052] text-black px-6 py-2 rounded-full">
               Search
@@ -56,7 +50,7 @@ export default function Home() {
               </div>
               <div className="mt-4">
                 <h3 className="font-semibold text-lg">{creator.title}</h3>
-                <p className="text-gray-600 mt-2">{creator.description}</p>
+                <p className="text-gray-600 dark:text-gray-500 mt-2">{creator.description}</p>
               </div>
             </div>
           ))}
@@ -68,10 +62,10 @@ export default function Home() {
         <h2 className="text-2xl font-bold mb-12">How Eco Sync works</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {features.map((feature, index) => (
-            <div key={index} className="p-6 rounded-lg border hover:shadow-lg transition-shadow">
+            <div key={index} className="p-6 rounded-lg dark:border-gray-600 border hover:shadow-lg transition-shadow">
               <div className="text-3xl mb-4">{feature.icon}</div>
               <h3 className="font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-600 text-sm">{feature.description}</p>
+              <p className="text-gray-600 dark:text-gray-500 text-sm">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -80,12 +74,7 @@ export default function Home() {
       {/* Call to Action */}
       <div className="text-center py-16">
         <h2 className="text-3xl font-bold mb-8">Ready to join the eco-movement?</h2>
-        <button 
-        className="bg-[#04c052] text-black px-6 py-1 rounded-full text-lg font-medium hover:bg-opacity-90"
-        onClick={() => handleClick('/Login')}
-        >
-          Sign up
-        </button>
+        <NavButton name='Sign up' className='bg-[#04c052] hover:bg-[#04c052]-500 text-black px-6 py-1 rounded-full text-lg font-medium hover:bg-opacity-90' route='/Login' />
       </div>
     </div>
   );

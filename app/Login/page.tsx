@@ -1,30 +1,22 @@
-'use client'
-import { useRouter } from 'next/navigation'
+import LoginAuth from "./LoginAuth";
 import React from 'react';
-// import { ConnectButton } from "thirdweb/react";
-// import { client } from '../client';
+
+export async function generateMetadata() {
+  return {
+    title: 'Eco Sync - Login',
+    description: 'Login to Eco Sync',
+  }
+}
 
 const LoginPage = () => {
-  const router = useRouter()
-
-  const handleClick = (route: string) => {
-    router.push(route)
-  }
 
   return (
-    <div className='flex justify-center items-center flex-col m-10 gap-4'>
-        <h1>Login Page</h1>
-        {/* <ConnectButton
-            client={client}
-            autoConnect={false}
-          /> */}
-        <button 
-        onClick={() => handleClick('/')}
-        className='border bg-green-600 px-3 py-1 rounded-[8px]'
-        >Go Back</button>
-
+    <div className="flex justify-center items-center flex-wrap min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-white">
+      <div className="flex justify-center items-center">
+        <LoginAuth />
+      </div>
     </div>
-  )
+  );
 }
 
 export default LoginPage
