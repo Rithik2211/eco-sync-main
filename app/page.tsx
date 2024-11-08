@@ -74,7 +74,7 @@ export default function Home() {
       {/* Call to Action */}
       <div className="text-center py-16">
         <h2 className="text-3xl font-bold mb-8">Ready to join the eco-movement?</h2>
-        <NavButton name='Sign up' className='bg-[#04c052] hover:bg-[#04c052]-500 text-black px-6 py-1 rounded-full text-lg font-medium hover:bg-opacity-90' route='/Login' />
+        <NavButton name='Sign up' className='bg-[#04c052] hover:bg-[#04c052]-500 font-semibold dark:text-white text-black px-6 py-1 rounded-full text-md hover:bg-opacity-90' route='/Login' />
       </div>
     </div>
   );
