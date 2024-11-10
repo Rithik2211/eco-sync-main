@@ -25,28 +25,18 @@ export const ecoCreators = [
 export const features = [
     {
         icon: "🌎",
-        title: "Discover",
-        description: "Find inspiring posts from around the world"
+        title: "Global Inspiration",
+        description: " Discover eco-friendly content worldwide to inspire positive habits."
     },
     {
         icon: "👥",
-        title: "Follow",
-        description: "Connect with other eco-conscious users"
+        title: "Connect",
+        description: "Network with eco-conscious friends, influencers, and advocates."
     },
     {
-        icon: "🔍",
-        title: "Explore",
-        description: "Search for specific topics or users"
-    },
-    {
-        icon: "💭",
-        title: "Comment",
-        description: "Add your thoughts to the conversation"
-    },
-    {
-        icon: "❤️",
-        title: "Like",
-        description: "Show support for posts that resonate with you"
+        icon: "📸",
+        title: "Create",
+        description: "Share photos, videos, and stories of your sustainable lifestyle."
     },
     {
         icon: "📤",
@@ -54,15 +44,26 @@ export const features = [
         description: "Spread the word about posts you love"
     },
     {
-        icon: "📸",
-        title: "Create",
-        description: "Upload your own photos and videos"
+        icon: "❤️",
+        title: "Community",
+        description: "Collaborate on eco-friendly project ideas and resources."
     },
     {
         icon: "📍",
         title: "Check in",
-        description: "Indicate your location on a post"
+        description: "Tag places to highlight eco-friendly spots and events."
     },
+    {
+        icon: "💲",
+        title: "Earn Rewards",
+        description: "Gain blockchain-based rewards for impactful, sustainable content."
+    },
+    {
+        icon: "🛍️",
+        title: "EcoSync Marketplace",
+        description: "Exchange or stake rewards and NFTs to support eco-conscious activities."
+    },
+   
     {
         icon: "...",
         title: "More",
