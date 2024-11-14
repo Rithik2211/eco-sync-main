@@ -14,11 +14,11 @@ const LoginAuth = () => {
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
-        router.push('/')
     };
 
     const handleSignInWithEmail = () => {
         // Implement sign-in with email functionality here
+        router.push('/')
         console.log('Signing in with email:', email);
     };
 
@@ -36,7 +36,7 @@ const LoginAuth = () => {
                 <p className="mb-6">Enter your email below to create your account</p>
                 <Input type="email" placeholder="Email" value={email}
                     onChange={handleEmailChange} className='w-full max-w-sm mb-3' />
-                <Button className='my-3 font-semibold px-4 py-2 max-w-sm w-full' onClick={(e)=> handleSignInWithEmail()}> <Mail /> Login with Email </Button>
+                <Button className='my-3 font-semibold px-4 py-2 max-w-sm w-full' onClick={ handleSignInWithEmail }> <Mail /> Login with Email </Button>
                 <div className="flex items-center mb-3 w-full max-w-sm">
                     <hr className="flex-grow border-zinc-700" />
                     <span className="mx-4 text-zinc-500">OR CONTINUE WITH</span>
