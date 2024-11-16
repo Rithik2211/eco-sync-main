@@ -7,6 +7,12 @@ import { Label } from "@/components/ui/label"
 import { Button } from '@/components/ui/button';
 import { Mail, Wallet } from "lucide-react";
 import { ImageToggle } from '../utils/DarkModeToggle';
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+  } from "@/components/ui/popover"
+import WalletList from '../utils/wallet/WalletList';
 
 const LoginAuth = () => {
     const [email, setEmail] = useState('');
@@ -22,11 +28,11 @@ const LoginAuth = () => {
         console.log('Signing in with email:', email);
     };
 
-    const handleConnectWallet = (route: string) => {
-        // Implement sign-in with GitHub functionality here
-        router.push(route)
-        console.log('Connect using the wallet');
-    };
+    // const handleConnectWallet = (route: string) => {
+    //     // Implement sign-in with GitHub functionality here
+    //     router.push(route)
+    //     console.log('Connect using the wallet');
+    // };
 
     return (
         <>
@@ -42,7 +48,7 @@ const LoginAuth = () => {
                     <span className="mx-4 text-zinc-500">OR CONTINUE WITH</span>
                     <hr className="flex-grow border-zinc-700" />
                 </div>
-                <Button className='font-semibold px-4 py-2 max-w-sm w-full' onClick={() => handleConnectWallet('/UI/Chatpage')}> <Wallet /> Connect Wallet </Button>
+                <PopOverWallet />
                 <div className="flex items-center space-x-2 mt-3 ">
                     <Checkbox id="terms" />
                     <Label htmlFor="terms">Accept terms and conditions</Label>
@@ -64,3 +70,25 @@ const LoginAuth = () => {
 }
 
 export default LoginAuth
+
+const PopOverWallet = () => {
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+      <Button className='font-semibold px-4 py-2 max-w-sm w-full'> <Wallet /> Connect Wallet </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-80">
+        <div className="grid gap-4">
+          <div className="space-y-2">
+            <h4 className="font-medium leading-none">Available Wallets</h4>
+          </div>
+          <div className="grid gap-2">
+            <div className="grid grid-cols-3 items-center gap-4">
+              <WalletList />
+            </div>
+          </div>
+        </div>
+      </PopoverContent>
+    </Popover>
+  )
+}
