@@ -28,11 +28,11 @@ const LoginAuth = () => {
         console.log('Signing in with email:', email);
     };
 
-    const handleConnectWallet = (route: string) => {
-        // Implement sign-in with GitHub functionality here
-        router.push(route)
-        console.log('Connect using the wallet');
-    };
+    // const handleConnectWallet = (route: string) => {
+    //     // Implement sign-in with GitHub functionality here
+    //     router.push(route)
+    //     console.log('Connect using the wallet');
+    // };
 
     return (
         <>
@@ -48,7 +48,7 @@ const LoginAuth = () => {
                     <span className="mx-4 text-zinc-500">OR CONTINUE WITH</span>
                     <hr className="flex-grow border-zinc-700" />
                 </div>
-                <PopOverWallet handleConnectWallet={handleConnectWallet}/>
+                <PopOverWallet />
                 <div className="flex items-center space-x-2 mt-3 ">
                     <Checkbox id="terms" />
                     <Label htmlFor="terms">Accept terms and conditions</Label>
@@ -71,9 +71,7 @@ const LoginAuth = () => {
 
 export default LoginAuth
 
-// onClick={() => handleConnectWallet('/UI/Chatpage')}
-
-const PopOverWallet = ({handleConnectWallet}:any) => {
+const PopOverWallet = () => {
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -86,7 +84,6 @@ const PopOverWallet = ({handleConnectWallet}:any) => {
           </div>
           <div className="grid gap-2">
             <div className="grid grid-cols-3 items-center gap-4">
-              {/* <Button onClick={() => handleConnectWallet('/UI/Chatpage')}> Connect here! </Button> */}
               <WalletList />
             </div>
           </div>
