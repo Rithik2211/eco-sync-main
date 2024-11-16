@@ -1,7 +1,8 @@
-import NavButton from '@/app/utils/NavButton';
+import NavButton from '@/app/utils/navigation/NavButton';
 import React from 'react'
 
 const Chatpage = () => {
+
   return (
     <div className='flex justify-center items-center flex-col my-4'>
         <h1>Welcome to Chat page!</h1>

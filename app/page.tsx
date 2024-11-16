@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ecoCreators, features } from "./utils/data";
-import NavButton from "./utils/NavButton";
+import NavButton from "./utils/navigation/NavButton";
 
 export default function Home() {
 
@@ -62,7 +62,7 @@ export default function Home() {
         <h2 className="text-2xl font-bold mb-12">How Eco Sync works</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {features.map((feature, index) => (
-            <div key={index} className="p-6 rounded-lg border  hover:border-green-500 dark:border-gray-600 hover:shadow-lg hover:shadow-green-500/30  transition-all duration-300">
+            <div key={index} className="p-6 rounded-lg border dark:hover:border-green-500 hover:border-green-500 dark:border-gray-600 hover:shadow-lg hover:shadow-green-500/30  transition-all duration-300">
               <div className="text-3xl mb-4">{feature.icon}</div>
               <h3 className="font-semibold mb-2">{feature.title}</h3>
               <p className="text-gray-600 dark:text-gray-500 text-sm">{feature.description}</p>
