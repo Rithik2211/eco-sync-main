@@ -77,10 +77,10 @@ const PopOverWallet = () => {
       <PopoverTrigger asChild>
       <Button className='font-semibold px-4 py-2 max-w-sm w-full'> <Wallet /> Connect Wallet </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-80">
+      <PopoverContent className="max-w-sm w-full">
         <div className="grid gap-4">
           <div className="space-y-2">
-            <h4 className="font-medium leading-none">Available Wallets</h4>
+            <h4 className="font-semibold leading-none">Available Wallets : </h4>
           </div>
           <div className="grid gap-2">
             <div className="grid grid-cols-3 items-center gap-4">
