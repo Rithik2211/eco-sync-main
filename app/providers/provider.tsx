@@ -1,6 +1,6 @@
 "use client"
 import { usePathname } from "next/navigation";
-import NavBar from "./UI/NavBar";
+import NavBar from "../UI/NavBar";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 type Attribute = "class" | "data-theme" | "data-mode"
@@ -39,14 +39,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
   const isLoginPage = pathName === '/Login';
   return (
     <>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="light"
-        enableSystem={true}
-      >
-        {!isLoginPage && <NavBar />}
-        {children}
-      </ThemeProvider>
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem={true}
+          >
+            {!isLoginPage && <NavBar />}
+            {children}
+          </ThemeProvider>
     </>
   )
 }

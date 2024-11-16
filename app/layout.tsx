@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Provider from "./provider"
+import Provider from "./providers/provider"
+import { Toaster } from "@/components/ui/toaster";
+import ReduxProvider from "./providers/ReduxProvider";
+import { WagmiProvider } from "./providers/WagmiProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,9 +31,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning >
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Provider>
-          {children}
-        </Provider>   
+      <ReduxProvider>
+        <WagmiProvider>
+          <Provider>
+            {children}
+          </Provider>
+          <Toaster /> 
+        </WagmiProvider>
+      </ReduxProvider>  
       </body>
     </html>
   );
