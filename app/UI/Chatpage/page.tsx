@@ -40,31 +40,3 @@ const Chatpage = () => {
 }
 
 export default Chatpage;
-
-// {/* Main Content Section */}
-// <div className="flex-1 flex max-h-screen">
-// {/* Side Navigation */}
-// <aside className="w-[300px] border-r">
-//   <div className="h-full p-4">
-//     <ContactsTab />
-//   </div>
-// </aside>
-
-// {/* Main Chat Area */}
-// <main className="flex-1">
-//   <h1 className="text-xl font-bold">Welcome to Chat page!</h1>
-//   <div className="flex gap-3">
-//     <NavButton 
-//       name='Home page' 
-//       className='bg-[#04c052] hover:bg-[#04c052]-500 font-semibold dark:text-white text-black px-6 py-1 rounded-full text-md hover:bg-opacity-90' 
-//       route='/' 
-//     />
-//     <NavButton 
-//       name='Login page' 
-//       className='bg-[#04c052] hover:bg-[#04c052]-500 font-semibold dark:text-white text-black px-6 py-1 rounded-full text-md hover:bg-opacity-90' 
-//       route='/Login' 
-//     />
-//   </div>
-//   <ChatContainer />
-// </main>
-// </div>
