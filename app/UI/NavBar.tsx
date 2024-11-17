@@ -1,6 +1,6 @@
 import React from 'react'
-import NavButton from '../utils/NavButton';
-import DarkModeToggle, { ImageToggle } from '../utils/DarkModeToggle';
+import { ImageToggle } from '../utils/DarkModeToggle';
+import { NavGroup } from '../utils/navigation/NavigationMenu';
 
 const NavBar = () => {
   return (
@@ -9,14 +9,7 @@ const NavBar = () => {
         <div>
           <ImageToggle img1='/logo-light.png' img2='/logo-dark.png' alt='logo' width={120} height={120}/>
         </div>
-        <div className='flex justify-around items-center w-[200px] h-[40px] flex-wrap'>
-          {/* Login / SignIn */}
-          <div className='flex items-center space-x-4'>
-            <DarkModeToggle />
-            <NavButton name='Join Us!' className='rounded-full border px-6 py-2 text-sm font-semibold dark:text-white text-black bg-[#04c052] hover:bg-[#04c052]-500' route='/Login' />
-            {/* <NavButton name='Sign up' className='rounded-full border px-6 py-2 text-sm font-medium text-black bg-[#E5E8EB] hover:bg-[#E5E8EB]-500' route='/Login' /> */}
-          </div>
-        </div>
+        <NavGroup />
       </div>
     </div>
   )

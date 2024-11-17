@@ -1,16 +1,9 @@
 "use client";
-
-import { useEthersSigner } from "@/wagmi/EthersSigner";
 import { useDispatch } from "react-redux";
 import { PushAPI, CONSTANTS } from "@pushprotocol/restapi";
 import { useToast } from "@/hooks/use-toast";
-
-import {
-  setPushSign,
-  setRecentContact,
-  setRecentRequest,
-  updateMessages,
-} from "@/redux/slice/pushSlice";
+import { useEthersSigner } from "../wagmi/EthersSigner";
+import { setPushSign, setRecentContact, setRecentRequest, updateMessages } from "../redux/slice/pushSlice";
 
 export default function usePush() {
   const dispatch = useDispatch();

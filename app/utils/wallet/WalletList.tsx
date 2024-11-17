@@ -6,6 +6,9 @@ import { useAccount, useConnect } from "wagmi";
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveWallet } from "../../redux/slice/modalsSlice";
 import { useRouter } from "next/navigation";
+import { useToast } from "@/hooks/use-toast";
+import { ToastAction } from "@/components/ui/toast";
+import { ShieldCheck } from 'lucide-react';
 
 interface Wallet {
   name: string;
@@ -21,13 +24,30 @@ const WalletList: FC = () => {
   const [client, setClient] = React.useState<boolean>(false);
   const activeWallet = useSelector((state: any) => state.modals.activeWallet);
   const { connect, connectors } = useConnect();
+  const { toast } = useToast();
 
   const handleClick = () => {
     if (isConnected){
       router.push("/UI/Chatpage");
+      toast({
+        title: "Login Success!!",
+        description: "Ready to connect with people",
+        action: (
+          <ToastAction altText="ShieldCheck"> <ShieldCheck className="text-green-500" /> </ToastAction>
+        ),
+      })
+    } else {
+      connect({  connector: connectors[activeWallet === "MetaMask" ? 0 : 1],  });
+      dispatch(setActiveWallet(activeWallet));
+      router.push("/UI/Chatpage");
+      toast({
+        title: "Login Success!!",
+        description: "Ready to connect with people",
+        action: (
+          <ToastAction altText="ShieldCheck"> <ShieldCheck className="text-green-500" /> </ToastAction>
+        ),
+      })
     }
-    connect({  connector: connectors[activeWallet === "MetaMask" ? 0 : 1],  });
-    dispatch(setActiveWallet(name));
   };
 
   useEffect(() => {
