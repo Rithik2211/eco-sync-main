@@ -13,7 +13,7 @@ const AddContactsBtn: FC = () => {
       className="p-2.5 rounded-full bg-bubble-gum/20 hover:bg-bubble-gum/40 hover:scale-105"
       onClick={() => dispatch(toggleNewContactsModal())}
     >
-      <UserRoundPlus className="h-4 w-4 text-black" />
+      <UserRoundPlus className="h-4 w-4 text-black dark:text-white " />
     </Button>
   );
 };

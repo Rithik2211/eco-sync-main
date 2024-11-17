@@ -1,7 +1,5 @@
-// This directive is used to specify the client-side execution context
 "use client";
 
-// Importing hooks and utilities from various libraries and modules
 import { useEffect } from "react";
 import { useAccount } from "wagmi";
 import { useSelector } from "react-redux";
@@ -26,9 +24,8 @@ const ChatContainer = () => {
     }
   }, [isConnected, signer, pushSign, initializePush]);
 
-  // Rendering the component
   return (
-    <div className="flex w-9/12 flex-grow my-2 bg-white rounded-l-xl">
+    <div className="flex w-9/12 flex-grow my-2 rounded-l-xl">
       {/* If there are no keys in currentContact, render ChatBackground, otherwise render ChatBox */}
       {Object.keys(currentContact).length === 0 ? (
         <ChatBackground />
@@ -39,5 +36,4 @@ const ChatContainer = () => {
   );
 };
 
-// Exporting the ChatContainer component as the default export of this module
 export default ChatContainer;
