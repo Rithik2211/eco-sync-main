@@ -22,7 +22,7 @@ const ContactsBody = () => {
       <ContactsSearch value={searchValue} onSearch={handleSearch} />
       <div className="px-2 py-1 flex flex-col overflow-hidden relative h-full">
         <div className="flex items-center justify-between w-full mb-3">
-          <h2 className="text-2xl font-bold text-black">Contacts</h2>
+          <h2 className="text-2xl font-bold text-black dark:text-white">Contacts</h2>
           <AddContactsBtn />
         </div>
         <div className="overflow-y-auto hide-scroll flex flex-1 flex-grow">
