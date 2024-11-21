@@ -39,7 +39,7 @@ const ProfileDropDown = ({children}:ProfileDropDownProps) => {
             Billing
             <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
           </DropdownMenuItem>
-          <DropdownMenuItem>
+          <DropdownMenuItem href="/settings">
             Settings
             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
           </DropdownMenuItem>

@@ -1,8 +1,10 @@
 "use client"
 import * as React from "react"
 import { cn } from "@/lib/utils"
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink,
-  NavigationMenuList, NavigationMenuTrigger} from "@/components/ui/navigation-menu";
+import {
+  NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink,
+  NavigationMenuList, NavigationMenuTrigger
+} from "@/components/ui/navigation-menu";
 import { useAccount, useEnsAvatar, useEnsName } from "wagmi";
 import DarkModeToggle from "../DarkModeToggle";
 import NavButton from "./NavButton";
@@ -10,54 +12,67 @@ import { usePathname } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ProfileDropDown from "../ProfileDropDown";
 import TooltipWrap from "../Tooltip";
+import { Users, Calendar, Activity, Package, Store, Recycle, ChartCandlestick } from 'lucide-react';
 
-const components: { title: string; href: string; description: string }[] = [
-    {
-      title: "Alert Dialog",
-      href: "/",
-      description:
-        "A modal dialog that interrupts the user with important content and expects a response.",
-    },
-    {
-      title: "Hover Card",
-      href: "/",
-      description:
-        "For sighted users to preview content available behind a link.",
-    },
-    {
-      title: "Progress",
-      href: "/",
-      description:
-        "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-    },
-  ]
+const components: { title: string; href: string; description: string, icon: React.JSX.Element; }[] = [
+  {
+    title: "Groups & Communities",
+    href: "/",
+    description:
+      "Connect with like-minded people and collaborate on eco-friendly projects.",
+    icon: <Users size={30} className="text-green-500" />
+  },
+  {
+    title: "Eco Meetups",
+    href: "/",
+    description:
+      "Join local or virtual events to network, share ideas, and collaborate on sustainability projects.",
+    icon: <Calendar size={30} className="text-blue-500" />
+  },
+  {
+    title: "Open Activities",
+    href: "/",
+    description:
+      "Participate in open events like clean-ups, workshops, and eco-challenges to make a positive environmental impact.",
+    icon: <Activity size={30} className="text-red-500" />
+  },
+]
 
 const NavigationMenuUI = () => {
   const { address } = useAccount()
   return (
     <NavigationMenu>
       <NavigationMenuList>
-      <NavigationMenuItem>
-        <DarkModeToggle />
-      </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+          <DarkModeToggle />
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Eco Marketplace</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="flex flex-col gap-3 p-2 md:w-[400px] lg:w-[400px]">
-              <ListItem href="/" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
+              <ListItem href="/" title="Sustainable Products">
+                <div className="flex items-center gap-3">
+                  <Package size={48} className="text-orange-400" />
+                  Discover eco-friendly products that promote a zero-waste lifestyle, from reusable items to sustainable fashion.
+                </div>
               </ListItem>
-              <ListItem href="/" title="Installation">
-                How to install dependencies and structure your app.
+              <ListItem href="/" title="Local Green Goods">
+                <div className="flex items-center gap-3">
+                  <Store size={48} className="text-green-500" />
+                  Support local farmers and artisans by purchasing organic, fair-trade, and eco-conscious goods from nearby communities.
+                </div>
               </ListItem>
-              <ListItem href="/" title="Typography">
-                Styles for headings, paragraphs, lists...etc
+              <ListItem href="/" title="Exchange & Swap">
+                <div className="flex items-center gap-3">
+                  <ChartCandlestick size={48} className="text-red-500" />
+                  Trade or swap eco-friendly items with others in the community to reduce waste and promote sustainable living.
+                </div>
               </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Community</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="flex flex-col gap-3 p-2 md:w-[400px] lg:w-[400px]">
               {components.map((component) => (
@@ -66,7 +81,10 @@ const NavigationMenuUI = () => {
                   title={component.title}
                   href={component.href}
                 >
-                  {component.description}
+                  <div className="flex items-center gap-3">
+                    {component.icon}
+                    <span>{component.description}</span>
+                  </div>
                 </ListItem>
               ))}
             </ul>
@@ -116,34 +134,34 @@ export const NavGroup = () => {
   const { data: ensName } = useEnsName({ address });
   const { data: ensAvatar } = useEnsAvatar({ name: ensName! });
 
-  return(
+  return (
     <>
-    {
-      (isConnected && pathName !== '/') ? 
-      <div className="flex justify-around items-center w-[600px] h-[40px] flex-wrap mr-5">
-        <NavigationMenuUI />
-        <ProfileDropDown>
-          {
-            ensAvatar ? 
-            <Avatar>
-              <AvatarImage src={ensAvatar} alt="ENS Avatar" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
-            :
-            <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
-          }
-        </ProfileDropDown>
-      </div> :
-      <div className='flex justify-around items-center w-[200px] h-[40px] flex-wrap'>
-        <div className='flex items-center space-x-4'>
-          <DarkModeToggle />
-          <NavButton name='Join Us!' className='rounded-full border px-6 py-2 text-sm font-semibold dark:text-white text-black bg-[#04c052] hover:bg-[#04c052]-500' route='/Login' />
-        </div>
-      </div>
-    }
+      {
+        (isConnected && pathName !== '/') ?
+          <div className="flex justify-around items-center w-[600px] h-[40px] flex-wrap mr-5">
+            <NavigationMenuUI />
+            <ProfileDropDown>
+              {
+                ensAvatar ?
+                  <Avatar>
+                    <AvatarImage src={ensAvatar} alt="ENS Avatar" />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+                  :
+                  <Avatar>
+                    <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+              }
+            </ProfileDropDown>
+          </div> :
+          <div className='flex justify-around items-center w-[200px] h-[40px] flex-wrap'>
+            <div className='flex items-center space-x-4'>
+              <DarkModeToggle />
+              <NavButton name='Join Us!' className='rounded-full border px-6 py-2 text-sm font-semibold dark:text-white text-black bg-[#04c052] hover:bg-[#04c052]-500' route='/Login' />
+            </div>
+          </div>
+      }
     </>
   )
 }

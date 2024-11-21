@@ -3,6 +3,7 @@
 import * as React from "react"
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
 import { Check, ChevronRight, Circle } from "lucide-react"
+import Link from 'next/link';
 
 import { cn } from "@/lib/utils"
 
@@ -78,20 +79,39 @@ DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName
 const DropdownMenuItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
-    inset?: boolean
+    inset?: boolean;
+    href?: string;
   }
->(({ className, inset, ...props }, ref) => (
-  <DropdownMenuPrimitive.Item
-    ref={ref}
-    className={cn(
-      "relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-neutral-100 focus:text-neutral-900 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0 dark:focus:bg-neutral-800 dark:focus:text-neutral-50",
-      inset && "pl-8",
-      className
-    )}
-    {...props}
-  />
-))
-DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName
+  >(({ className, inset, href, ...props }, ref) => {
+    if (href) {
+      return (
+        <Link href={href} passHref>
+          <DropdownMenuPrimitive.Item
+            ref={ref}
+            className={cn(
+              "relative flex cursor-default select-none hover:bg-emerald-400 items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-emerald-400 focus:text-neutral-900 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0 dark:focus:bg-neutral-800 dark:focus:text-neutral-50",
+              inset && "pl-8",
+              className
+            )}
+            {...props}
+          />
+        </Link>
+      );
+    }
+  
+    return (
+      <DropdownMenuPrimitive.Item
+        ref={ref}
+        className={cn(
+          "relative flex cursor-default select-none hover:bg-emerald-400 items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-emerald-400 focus:text-neutral-900 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0 dark:focus:bg-neutral-800 dark:focus:text-neutral-50",
+          inset && "pl-8",
+          className
+        )}
+        {...props}
+      />
+    );
+  });
+  DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName;
 
 const DropdownMenuCheckboxItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
