@@ -63,7 +63,6 @@ const ProfileSettings = () => {
                 width={100}
                 height={100}
                 alt="Profile"
-
                 className="rounded-full object-cover border-2 border-black"
               />
               
