@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Camera, Lock, Bell, Globe, Shield, LogOut, Leaf } from 'lucide-react';
 import Image from 'next/image';
+
 // import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const ProfileSettings = () => {
@@ -58,6 +59,7 @@ const ProfileSettings = () => {
         <div className="mb-8">
           <div className="flex items-center gap-6">
             <div className="relative">
+
               <Image
                 src="/user-round.svg"
                 width={100}
