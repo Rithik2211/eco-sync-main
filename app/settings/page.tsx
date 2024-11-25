@@ -60,6 +60,9 @@ const ProfileSettings = () => {
         <div className="mb-8">
           <div className="flex items-center gap-6">
             <div className="relative">
+
+              
+
               <Image
                 src="/user-round.svg"
                 width={100}
