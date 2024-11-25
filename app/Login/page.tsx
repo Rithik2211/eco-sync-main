@@ -1,3 +1,4 @@
+import Image from "next/image";
 import LoginAuth from "./LoginAuth";
 import React from 'react';
 
@@ -13,13 +14,15 @@ const LoginPage = () => {
     <div className="relative min-h-screen w-full">
       {/* Background images with dark/light mode support */}
       <div className="absolute inset-0 w-full h-full">
-        <img 
+        <Image
           src="/loginpage/login_bg_light.png" 
+          fill
           alt="Login background light" 
           className="object-cover w-full h-full  block dark:hidden"
         />
-        <img 
+        <Image
           src="/loginpage/login_bg_dark.png" 
+          fill
           alt="Login background dark" 
           className="object-cover w-full h-full hidden dark:block"
         />

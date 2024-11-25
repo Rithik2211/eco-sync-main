@@ -28,7 +28,7 @@ const WalletList: FC = () => {
 
   const handleClick = () => {
     if (isConnected){
-      router.push("/UI/Chatpage");
+      router.push("/dashboard");
       toast({
         title: "Login Success!!",
         description: "Ready to connect with people",
@@ -39,7 +39,7 @@ const WalletList: FC = () => {
     } else {
       connect({  connector: connectors[activeWallet === "MetaMask" ? 0 : 1],  });
       dispatch(setActiveWallet(activeWallet));
-      router.push("/UI/Chatpage");
+      router.push("/dashboard");
       toast({
         title: "Login Success!!",
         description: "Ready to connect with people",

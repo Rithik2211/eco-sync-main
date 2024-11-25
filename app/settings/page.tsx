@@ -1,7 +1,6 @@
 'use client'
 import React, { useState } from 'react';
 import { Camera, Lock, Bell, Globe, Shield, LogOut, Leaf } from 'lucide-react';
-
 import Image from 'next/image';
 
 // import { Alert, AlertDescription } from '@/components/ui/alert';
