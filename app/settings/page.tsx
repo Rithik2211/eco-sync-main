@@ -1,7 +1,9 @@
 'use client'
 import React, { useState } from 'react';
 import { Camera, Lock, Bell, Globe, Shield, LogOut, Leaf } from 'lucide-react';
+
 import Image from 'next/image';
+
 // import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const ProfileSettings = () => {
@@ -63,7 +65,6 @@ const ProfileSettings = () => {
                 width={100}
                 height={100}
                 alt="Profile"
-
                 className="rounded-full object-cover border-2 border-black"
               />
               
