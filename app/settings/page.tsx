@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { Camera, Lock, Bell, Globe, Shield, LogOut, Leaf } from 'lucide-react';
+import Image from 'next/image';
 // import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const ProfileSettings = () => {
@@ -57,10 +58,13 @@ const ProfileSettings = () => {
         <div className="mb-8">
           <div className="flex items-center gap-6">
             <div className="relative">
-              <img 
-                src="/public/user-round.svg"
+              <Image
+                src="/user-round.svg"
+                width={100}
+                height={100}
                 alt="Profile"
-                className="w-24 h-24 rounded-full object-cover border-2 border-black"
+
+                className="rounded-full object-cover border-2 border-black"
               />
               
               <button className="absolute bottom-0 right-0 p-2 bg-green-500 rounded-full text-white hover:bg-green-600">
